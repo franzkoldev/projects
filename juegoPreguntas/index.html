@@ -1,18 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juego de Preguntas y Respuestas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .question {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .options button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .options button:hover {
+      background-color: #0056b3;
+    }
+    .score {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="card">
-            <p id="question">Haz click en el boton para iniciar</p>
-        </div>
-        <button id="nextQuestion">Siguiente pregunta</button>
+  <div class="container">
+    <div id="game">
+      <div id="question" class="question"></div>
+      <div id="options" class="options"></div>
+      <div id="timer" class="timer"></div>
     </div>
-    <script src="index.js"></script>
+    <div id="score" class="score" style="display: none;"></div>
+  </div>
+
+  <script>
+    const preguntas = [
+      {
+        pregunta: "¿Cuál es la capital de Francia?",
+        opciones: ["Madrid", "Roma", "París", "Berlín"],
+        respuesta: 2,
+      },
+      {
+        pregunta: "¿Cuántos planetas tiene el sistema solar?",
+        opciones: ["7", "8", "9", "10"],
+        respuesta: 1,
+      },
+      {
+        pregunta: "¿Quién pintó la Mona Lisa?",
+        opciones: ["Van Gogh", "Picasso", "Leonardo da Vinci", "Miguel Ángel"],
+        respuesta: 2,
+      },
+      {
+        pregunta: "¿Cuál es el metal más ligero?",
+        opciones: ["Oro", "Litio", "Aluminio", "Hierro"],
+        respuesta: 1,
+      }
+    ];
+
+    let puntuacion = 0;
+    let preguntaActual = 0;
+    let intentosRestantes = 3;
+    let temporizador;
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const scoreEl = document.getElementById("score");
+
+    function mostrarPregunta() {
+      if (preguntaActual >= preguntas.length) {
+        finalizarJuego();
+        return;
+      }
+
+      const pregunta = preguntas[preguntaActual];
+      questionEl.textContent = pregunta.pregunta;
+      optionsEl.innerHTML = "";
+
+      pregunta.opciones.forEach((opcion, index) => {
+        const button = document.createElement("button");
+        button.textContent = opcion;
+        button.onclick = () => verificarRespuesta(index);
+        optionsEl.appendChild(button);
+      });
+
+      iniciarTemporizador();
+    }
+
+    function verificarRespuesta(index) {
+      const pregunta = preguntas[preguntaActual];
+
+      if (index === pregunta.respuesta) {
+        puntuacion++;
+        preguntaActual++;
+        intentosRestantes = 3;
+        clearTimeout(temporizador);
+        mostrarPregunta();
+      } else {
+        intentosRestantes--;
+        if (intentosRestantes <= 0) {
+          preguntaActual++;
+          intentosRestantes = 3;
+          clearTimeout(temporizador);
+          mostrarPregunta();
+        } else {
+          alert(`Respuesta incorrecta. Intentos restantes: ${intentosRestantes}`);
+        }
+      }
+    }
+
+    function iniciarTemporizador() {
+      let tiempoRestante = 15;
+      const timerEl = document.getElementById("timer");
+      timerEl.textContent = `Tiempo restante: ${tiempoRestante}s`;
+
+      temporizador = setInterval(() => {
+        tiempoRestante--;
+        timerEl.textContent = `Tiempo restante: ${tiempoRestante}s`;
+
+        if (tiempoRestante <= 0) {
+          clearInterval(temporizador);
+          alert("¡Tiempo agotado!");
+          preguntaActual++;
+          intentosRestantes = 3;
+          mostrarPregunta();
+        }
+      }, 1000);
+    }
+
+    function finalizarJuego() {
+      questionEl.style.display = "none";
+      optionsEl.style.display = "none";
+      scoreEl.style.display = "block";
+      scoreEl.textContent = `Juego terminado. Tu puntuación es: ${puntuacion}/${preguntas.length}`;
+    }
+
+    mostrarPregunta();
+  </script>
 </body>
 </html>
