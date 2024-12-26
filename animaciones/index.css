@@ -1,0 +1,62 @@
+/* Reset general */
+body {
+    margin: 0;
+    background-color: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .arrow-container {
+    position: relative;
+    width: 200px;
+    height: 10px;
+    overflow: hidden;
+  }
+  
+  .arrow {
+    position: absolute;
+    height: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    animation: slide-in 2s ease-in-out forwards;
+  }
+  
+  .arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    border: solid white;
+    border-width: 5px 0 5px 8px;
+    border-color: transparent transparent transparent white;
+    opacity: 0;
+    animation: arrow-tip 0.5s ease-in-out forwards 2s; /* Ajuste del delay */
+  }
+  
+  @keyframes slide-in {
+    0% {
+      width: 0;
+      left: 0;
+    }
+    100% {
+      width: 200px;
+      left: 0;
+    }
+  }
+  
+  @keyframes arrow-tip {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%) translateX(-10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-50%) translateX(0);
+    }
+  }
+  
