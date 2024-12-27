@@ -22,7 +22,7 @@ body {
   height: 60px;
   border-top: 12px solid #fff;
   border-left: 12px solid #fff;
-  transform: rotate(-45deg);
+  transform: rotate(135deg);
   animation: arrow-load 2s infinite;
 }
 .arrow:nth-child(1) {
@@ -36,15 +36,18 @@ body {
   right: 25px;
   animation-delay: 0s;
 }
+
 @keyframes arrow-load {
   0% {
     opacity: 0;
-    transform: rotate(-45deg) translate(60px, 60px);}
+    transform: rotate(135deg) translate(60px, 60px);}
   50% {
     opacity: 1;
+    transform: rotate(135deg) translate(-60px, -60px)    
   }
   100% {
     opacity: 0;
-    transform: rotate(-45deg) translate(-60px, -60px);
+    transform: rotate(135deg) translate(-60px, -60px);
   }
 }
+  
