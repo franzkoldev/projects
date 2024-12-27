@@ -40,4 +40,11 @@ body {
   0% {
     opacity: 0;
     transform: rotate(-45deg) translate(60px, 60px);}
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-45deg) translate(-60px, -60px);
+  }
 }
