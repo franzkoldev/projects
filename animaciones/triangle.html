@@ -19,18 +19,42 @@
             border-bottom: 100px solid;                                                                      
         }      
         .one {
-            animation-name: rotating-triangle;
+            animation-name: rotating-triangle-one;
             animation-iteration-count: infinite;
             animation-duration: 2s;
             animation-timing-function: ease-in-out;
             transform: rotate(360deg); 
         }
-        @keyframes rotating-triangle {
+        .two {
+            animation-name: translatingY-triangle-two;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+            transform: translateY(60px);
+        }
+        @keyframes rotating-triangle-one {
             0% {
                 transform: rotate(0deg);
             }
             100% {
                 transform: rotate(360deg);
+            }
+        }
+        @keyframes translatingY-triangle-two {
+            0% {
+                transform: translateY(0px);
+            }
+            25% { transform: translateY(50px);
+
+            }
+            50% {
+                transform: translateY(100px);
+            }
+            75% {
+                transform: translateY(50px)
+            }
+            100% {
+                transform: translateY(0px);
             }
         }
 
