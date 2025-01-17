@@ -9,25 +9,39 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 100px;
+            margin-top: 300px;
         }
         .triangle {
             width: 0px;
             height: 0px;
             border-right: 50px solid transparent;
             border-left: 50px solid transparent;
-            border-bottom: 100px solid;
-            transform: rotate(0deg);                                                          
+            border-bottom: 100px solid;                                                                      
+        }      
+        .one {
+            animation-name: rotating-triangle;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+            transform: rotate(360deg); 
         }
-        .triangle:hover {
-            transform: rotate(180deg);
-            transition: 2s;
+        @keyframes rotating-triangle {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
         }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="triangle"></div>
+        <div class="triangle one"></div>
+        <div class="triangle two"></div>
+        <div class="triangle three"></div>
+        <div class="triangle four"></div>
     </div>
 </body>
 </html>
