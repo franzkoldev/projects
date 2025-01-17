@@ -32,6 +32,20 @@
             animation-timing-function: ease-in;
             transform: translateY(60px);
         }
+        .three {
+            animation-name: scalating-triangle-three;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+            transform: scale(40%);
+        }
+        .four {
+            animation-name: translating-triangleX-four;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            transform: translateX(100px);
+        }
         @keyframes rotating-triangle-one {
             0% {
                 transform: rotate(0deg);
@@ -43,18 +57,34 @@
         @keyframes translatingY-triangle-two {
             0% {
                 transform: translateY(0px);
-            }
-            25% { transform: translateY(50px);
-
-            }
+            }           
             50% {
                 transform: translateY(100px);
-            }
-            75% {
-                transform: translateY(50px)
-            }
+            }            
             100% {
                 transform: translateY(0px);
+            }
+        }
+        @keyframes scalating-triangle-three {
+            0% {
+                transform: scale(100%);
+            }
+            50% {
+                transform: scale(40%)
+            }
+            100% {
+                transform: scale(100%);
+            }
+        }
+        @keyframes translating-triangleX-four {
+            0% {
+                transform: translateX(0px);
+            }
+            50% {
+                transform: translateX(100px);
+            }
+            100% {
+                transform: translateX(0px);
             }
         }
 
