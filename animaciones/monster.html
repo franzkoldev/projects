@@ -4,6 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 50px;            
+        }
+        .body {
+            width: 300px;
+            height: 450px;
+            background: green;
+            border-radius: 20px;
+            z-index: 1;
+            left: -200px;
+            display: flex;
+        }
+        .arms {
+            display: flex;
+            width: 200px;
+            height: 70px;
+            background: purple;
+            border-radius: 10px;
+            z-index: 0;             
+        }        
+    </style>
 </head>
 <body>
     <div class="container">
