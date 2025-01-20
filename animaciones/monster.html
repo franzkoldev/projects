@@ -11,6 +11,17 @@
             justify-content: center;
             margin-top: 50px;            
         }
+        .arms {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            width: 200px;
+            height: 70px;
+            background: purple;
+            border-radius: 10px;
+            z-index: 0;
+            margin-top: 50px;
+            gap: 50px;                         
+        }       
         .body {
             width: 300px;
             height: 450px;
@@ -19,15 +30,11 @@
             z-index: 1;
             left: -200px;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
         }
-        .arms {
-            display: flex;
-            width: 200px;
-            height: 70px;
-            background: purple;
-            border-radius: 10px;
-            z-index: 0;             
-        }        
+              
     </style>
 </head>
 <body>
@@ -35,8 +42,7 @@
         <div class="arms left"></div>
         <div class="arms right"></div>
         <div class="legs left"></div>
-        <div class="legs right"></div>
-        <div class="body">
+        <div class="legs right"></div>        
             <div class="eyes left">
                 <div class="pupil-left"></div>
             </div>
@@ -51,5 +57,6 @@
             </div>
         </div>
     </div>
+    <div class="body"></div>
 </body>
 </html>
