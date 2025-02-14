@@ -23,7 +23,54 @@
             animation-duration: 2s;
             animation-iteration-count: infinite;
             animation-timing-function: ease-in-out;
-            transform: translateY(-60px)
+            transform: translateY(-100px)
+        }
+        .two {
+            animation-name: scaling-circle-two;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            transform: scale(1)
+        }
+        .three {
+            animation-name: scaling-circle-three;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            transform: scaleX(1.5)
+        }
+        @keyframes translatingY-circle-one {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-100px);
+            }
+            100% {
+                transform: translateY(0px);                
+            }
+        }
+        @keyframes scaling-circle-two {
+            0% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0);
+            }
+        }
+        @keyframes scaling-circle-three {
+            0% {
+                transform: scaleX(1);
+            }
+            50% {
+                transform: scaleX(1.5);
+            }
+            100% {
+                transform: scaleX(1);
+            }
         }
     </style>
 </head>
