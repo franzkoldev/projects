@@ -19,6 +19,23 @@
             width: 200px;
             height: 200px;
             background-color: palevioletred;
+            border-radius: 50%;
+            box-shadow: 2px 2px 5px 0px white;
+            animation-name: sombra;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes sombra {
+            0% {
+                box-shadow: 2px 2px 5px 0px white;
+            }
+            50% {
+                box-shadow: 2px 2px 5px 10px white;
+            }
+            100% {
+                box-shadow: 2px 2px 5px 0px white;
+            }
         }
     </style>
 </head>
