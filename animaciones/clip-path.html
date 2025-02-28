@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .figure {
+            width: 200px;
+            height: 200px;
+            background-color: palevioletred;
+            clip-path: ellipse(50% 36% at 50% 50%);
+            transform: rotate(-17deg);
+            animation-name: bouncing;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }       
+        
+        @keyframes bouncing {
+            0% {
+                clip-path: ellipse(50% 50% at 50% 50%);
+            }
+            50% {
+                clip-path: ellipse(50% 36% at 50% 50%);
+            }
+            100% {
+                clip-path: ellipse(50% 50% at 50% 50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="figure box-shadow"></div>
+    </div>
+</body>
+</html>
