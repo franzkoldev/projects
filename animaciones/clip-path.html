@@ -22,7 +22,22 @@
             animation-duration: 2s;
             animation-iteration-count: infinite;
             animation-timing-function: ease-in-out;
-        }       
+        }
+        .figure1 {
+            width: 200px;
+            height: 200px;
+            background-color: palevioletred;
+            position: relative;
+            clip-path: path('M 0 0 L 200 0 L 200 200 L 0 200 Q 100 100 0 0');
+        }
+        .figure2 {
+            width: 200px;
+            height: 200px;
+            background-color: palevioletred;
+            position: relative;
+            clip-path: path('M 0 0 L 200 0 L 200 200 L 0 200 Q 100 100 0 0');
+            transform: rotate(180deg);
+        }    
         
         @keyframes bouncing {
             0% {
@@ -45,7 +60,9 @@
 </head>
 <body>
     <div class="container">
+        <div class="figure2 box-shadow"></div>
         <div class="figure box-shadow"></div>
+        <div class="figure1 box-shadow"></div>
     </div>
 </body>
 </html>
